@@ -34,8 +34,9 @@ if uploaded_file is not None:
 
     files = { "file": uploaded_file.getvalue() }
     with st.spinner("Processing Base.."):
-        response = requests.post("http://127.0.0.1:8000/base",
-                                    files=files)
+        response = requests.post(
+            "https://bloodcellanalyzer-ds4utgjcza-ew.a.run.app/base",
+            files=files)
 
         images = [json.loads(response.json()["base"])]
         st.image(np.array(images[0]), width=500)
@@ -45,8 +46,9 @@ if uploaded_file is not None:
         # response = requests.post(
         #     "https://bloodcellanalyzer-ds4utgjcza-ew.a.run.app/segmenter",
         #     files=files)
-        response = requests.post("http://127.0.0.1:8000/segmenter",
-                                 files=files)
+        response = requests.post(
+            "https://bloodcellanalyzer-ds4utgjcza-ew.a.run.app/segmenter",
+            files=files)
 
         images = json.loads(response.json()["list_ROI"])
         images = [np.array(image) for image in images]
