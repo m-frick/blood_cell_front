@@ -1,13 +1,10 @@
-from os import terminal_size
-from IPython.core.pylabtools import figsize
-from scipy.ndimage.measurements import label
 import streamlit as st
 import numpy as np
 from PIL import Image
 import requests
 import matplotlib.pyplot as plt
 import json
-import zlib
+
 
 st.set_page_config(layout="wide")
 st.title("Blood sample analysis")
